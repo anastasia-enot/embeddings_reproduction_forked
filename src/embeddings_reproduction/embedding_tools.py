@@ -108,7 +108,7 @@ def get_embeddings(doc2vec_file, seqs, k=3, overlap=False, norm=True, steps=5):
     """
     model = doc2vec.Doc2Vec.load(doc2vec_file)
     as_kmers = seqs_to_kmers(seqs, k=k, overlap=overlap)
-    vectors = np.array([model.infer_vector(doc, steps=steps)
+    vectors = np.array([model.infer_vector(doc)
                         for doc in as_kmers])
     if overlap:
         embeds = vectors
